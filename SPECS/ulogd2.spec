@@ -10,7 +10,8 @@ Source1:       %{name}.service
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
 BuildRequires: libnfnetlink-devel >= 1.0.1
-Requires:      libnfnetlink >= 1.0.1
+BuildRequires: libnetfilter_log-devel >= 1.0.1
+Requires:      libnetfilter_log >= 1.0.1
 
 %description
 This packages is intended for doing all netfilter related logging inside a
