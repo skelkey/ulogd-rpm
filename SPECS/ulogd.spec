@@ -48,32 +48,32 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %license COPYING
-%{_sbindir}/%{name}
-%{_lib}/%{name}/ulogd_filter_HWHDR.so
-%{_lib}/%{name}/ulogd_filter_IFINDEX.so
-%{_lib}/%{name}/ulogd_filter_IP2BIN.so
-%{_lib}/%{name}/ulogd_filter_IP2HBIN.so
-%{_lib}/%{name}/ulogd_filter_IP2STR.so
-%{_lib}/%{name}/ulogd_filter_MARK.so
-%{_lib}/%{name}/ulogd_filter_PRINTFLOW.so
-%{_lib}/%{name}/ulogd_filter_PRINTPKT.so
-%{_lib}/%{name}/ulogd_filter_PWSNIFF.so
-%{_lib}/%{name}/ulogd_inpflow_NFACCT.so
-%{_lib}/%{name}/ulogd_inpflow_NFCT.so
-%{_lib}/%{name}/ulogd_inppkt_NFLOG.so
-%{_lib}/%{name}/ulogd_inppkt_ULOG.so
-%{_lib}/%{name}/ulogd_inppkt_UNIXSOCK.so
-%{_lib}/%{name}/ulogd_output_GPRINT.so
-%{_lib}/%{name}/ulogd_output_GRAPHITE.so
-%{_lib}/%{name}/ulogd_output_LOGEMU.so
-%{_lib}/%{name}/ulogd_output_NACCT.so
-%{_lib}/%{name}/ulogd_output_OPRINT.so
-%{_lib}/%{name}/ulogd_output_SYSLOG.so
-%{_lib}/%{name}/ulogd_output_XML.so
-%{_lib}/%{name}/ulogd_raw2packet_BASE.so
-%{_datarootdir}/licenses/ulogd/COPYING
-%{_mandir}/man8/ulogd.8.gz
 %defattr(-,%{name},%{name},-)
+%attr(-,root,root) %{_sbindir}/%{name}
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_HWHDR.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_IFINDEX.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_IP2BIN.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_IP2HBIN.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_IP2STR.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_MARK.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_PRINTFLOW.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_PRINTPKT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_filter_PWSNIFF.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_inpflow_NFACCT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_inpflow_NFCT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_inppkt_NFLOG.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_inppkt_ULOG.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_inppkt_UNIXSOCK.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_GPRINT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_GRAPHITE.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_LOGEMU.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_NACCT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_OPRINT.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_SYSLOG.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_output_XML.so
+%attr(-,root,root) %{_lib}/%{name}/ulogd_raw2packet_BASE.so
+%attr(-,root,root) %{_datarootdir}/licenses/ulogd/COPYING
+%attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
 
