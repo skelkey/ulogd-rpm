@@ -14,11 +14,13 @@ BuildRequires: libnfnetlink-devel >= 1.0.1
 BuildRequires: libnetfilter_log-devel >= 1.0.1
 BuildRequires: libnetfilter_conntrack-devel >= 1.0.7
 BuildRequires: libmnl-devel >= 1.0.4
+BuildRequires: libnetfilter_acct-devel >= 1.0.2
  
 Requires: libnfnetlink >= 1.0.1
 Requires: libnetfilter_log >= 1.0.1
 Requires: libnetfilter_conntrack >= 1.0.7
 Requires: libmnl >= 1.0.4
+Requires: libnetfilter_acct >= 1.0.2
 
 %description
 This packages is intended for doing all netfilter related logging inside a
