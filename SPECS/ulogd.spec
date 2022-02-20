@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_lib}/%{name}/ulogd_raw2packet_BASE.so
 %{_datarootdir}/licenses/ulogd/COPYING
 %{_mandir}/man8/ulogd.8.gz
+%defattr(-,%{name},%{name},-)
+%attr(-,root,root) %{_unitdir}/%{name}.service
+%{_sysconfdir}/%{name}/%{name}.conf
 
 %doc COPYING AUTHORS README
 
