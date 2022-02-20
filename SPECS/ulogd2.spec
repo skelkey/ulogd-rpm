@@ -1,14 +1,14 @@
-Name:      ulogd
-Version:   2.0.7
-Release:   1%{?dist}
-Summary:   Userspace logging daemon for netfilter/iptables
+Name:    ulogd
+Version: 2.0.7
+Release: 1%{?dist}
+Summary: Userspace logging daemon for netfilter/iptables
+License: GPLv2 
+URL:     https://www.netfilter.org
 
-License:   GPLv2 
-URL:       https://www.netfilter.org/
-Source0:   https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
-Source1:   %{name}.service
-BuildArch: x86_64
-BuildRequires: gcc
+Source0:       https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
+Source1:       %{name}.service
+BuildArch:     x86_64
+BuildRequires: gcc >= 8.3
 #Requires:
 
 %description
