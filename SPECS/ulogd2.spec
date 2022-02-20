@@ -1,4 +1,4 @@
-Name:      ulogd2
+Name:      ulogd
 Version:   2.0.7
 Release:   1%{?dist}
 Summary:   Userspace logging daemon for netfilter/iptables
@@ -35,5 +35,5 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun Feb 20 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
   - Initial specfile
-  - Compiling ulogd2
-  - Install ulogd2
+  - Compiling ulogd
+  - Install ulogd
