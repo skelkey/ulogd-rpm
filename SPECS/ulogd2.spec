@@ -5,16 +5,20 @@ Summary: Userspace logging daemon for netfilter/iptables
 License: GPLv2 
 URL:     https://www.netfilter.org
 
-Source0:       https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
-Source1:       %{name}.service
+Source0:    https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
+Source1:   %{name}.service
+
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
 BuildRequires: libnfnetlink-devel >= 1.0.1
 BuildRequires: libnetfilter_log-devel >= 1.0.1
-BuildRequires: libnetfilter_conntrack-devel >= 1.0.7 
-Requires:      libnfnetlink >= 1.0.1
-Requires:      libnetfilter_log >= 1.0.1
-Requires:      libnetfilter_conntrack >= 1.0.7
+BuildRequires: libnetfilter_conntrack-devel >= 1.0.7
+BuildRequires: libmnl-devel >= 1.0.4
+ 
+Requires: libnfnetlink >= 1.0.1
+Requires: libnetfilter_log >= 1.0.1
+Requires: libnetfilter_conntrack >= 1.0.7
+Requires: libmnl >= 1.0.4
 
 %description
 This packages is intended for doing all netfilter related logging inside a
