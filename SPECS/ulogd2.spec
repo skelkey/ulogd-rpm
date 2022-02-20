@@ -9,7 +9,7 @@ Source0:       https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1:       %{name}.service
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
-BuildRequires: libnetlink-devel >= 1.0.1
+BuildRequires: libnfnetlink-devel >= 1.0.1
 BuildRequires: libnetfilter_log-devel >= 1.0.1
 BuildRequires: libnetfilter_conntrack-devel >= 1.0.7 
 Requires:      libnfnetlink >= 1.0.1
