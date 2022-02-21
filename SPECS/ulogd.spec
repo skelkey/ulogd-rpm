@@ -47,6 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/getent passwd %{name} > /dev/null || /usr/sbin/useradd -r -d /var/lib/%{name} -s /sbin/nologin -g %{name} %{name}
 
 %files
+%license COPYING
 %doc COPYING AUTHORS README
 %defattr(-,%{name},%{name},-)
 %attr(-,root,root) %{_sbindir}/%{name}
@@ -72,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_SYSLOG.so
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_XML.so
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
-%attr(-,root,root) %{_datarootdir}/licenses/ulogd/COPYING
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
