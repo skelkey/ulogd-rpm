@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/getent passwd %{name} > /dev/null || /usr/sbin/useradd -r -d /var/lib/%{name} -s /sbin/nologin -g %{name} %{name}
 
 %files
-%license COPYING
+%doc COPYING AUTHORS README
 %defattr(-,%{name},%{name},-)
 %attr(-,root,root) %{_sbindir}/%{name}
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_HWHDR.so
@@ -76,8 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
-
-%doc COPYING AUTHORS README
 
 %changelog
 * Sun Feb 20 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
