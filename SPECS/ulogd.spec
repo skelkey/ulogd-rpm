@@ -37,7 +37,7 @@ userspace process
 %setup -q
 
 %build
-%configure
+%configure --disable-static
 make %{?_smp_mflags}
 
 %install
