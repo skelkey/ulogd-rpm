@@ -19,6 +19,7 @@ BuildRequires: libnetfilter_acct-devel >= 1.0.2
 BuildRequires: community-mysql-devel >= 5.7.25
 BuildRequires: postgresql-devel >= 10.7
 BuildRequires: libdbi-devel >= 0.9.0
+BuildRequires: libdbi >= 0.9.0
 BuildRequires: libpcap-devel >= 1.9.0
 
  
@@ -27,6 +28,7 @@ Requires: libnetfilter_log >= 1.0.1
 Requires: libnetfilter_conntrack >= 1.0.7
 Requires: libmnl >= 1.0.4
 Requires: libnetfilter_acct >= 1.0.2
+Requires: libdbi >= 0.9.0
 
 %description
 This packages is intended for doing all netfilter related logging inside a
