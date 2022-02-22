@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -d -m 0755 %{buildroot}%{_unitdir}
 %{__install} -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
-%{__install} -m 0600 %{_builddir}/%{name}-%{version}/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+%{__install} -m 0600 %{_builddir}/%{name}-%{VERSION}/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
