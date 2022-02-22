@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PCAP.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.so
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.la
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.la
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
