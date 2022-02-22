@@ -7,6 +7,7 @@ URL:     https://www.netfilter.org
 
 Source0: https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1: %{name}.service
+Source2: %{name}.conf
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
@@ -29,6 +30,8 @@ Requires: libmnl >= 1.0.4
 Requires: libnetfilter_acct >= 1.0.2
 Requires: libdbi >= 0.9.0
 
+%define _unpackaged_files_terminate_build 0 
+
 %description
 This packages is intended for doing all netfilter related logging inside a
 userspace process
@@ -46,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -d -m 0755 %{buildroot}%{_unitdir}
 %{__install} -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
-%{__install} -m 0600 %{_builddir}/%{name}-%{VERSION}/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+%{__install} -m 0600 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
