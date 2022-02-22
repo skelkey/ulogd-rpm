@@ -7,7 +7,6 @@ URL:     https://www.netfilter.org
 
 Source0: https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1: %{name}.service
-#Source2: %{name}.conf
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
@@ -100,8 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_SYSLOG.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_XML.so
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_XML.la
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.la
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_MYSQL.so
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_MYSQL.la
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PCAP.so
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PCAP.la
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.so
+%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.la
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
