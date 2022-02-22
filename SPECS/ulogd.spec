@@ -37,7 +37,7 @@ userspace process
 %setup -q
 
 %build
-%configure --disable-static
+%configure
 make %{?_smp_mflags}
 
 %install
@@ -58,55 +58,30 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,%{name},%{name},-)
 %attr(-,root,root) %{_sbindir}/%{name}
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_HWHDR.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_HWHDR.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IFINDEX.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IFINDEX.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2BIN.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2BIN.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2HBIN.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2HBIN.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2STR.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_IP2STR.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_MARK.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_MARK.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PRINTFLOW.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PRINTFLOW.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PRINTPKT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PRINTPKT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PWSNIFF.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_filter_PWSNIFF.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_inpflow_NFACCT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_inpflow_NFACCT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_inpflow_NFCT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_inpflow_NFCT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_NFLOG.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_NFLOG.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_ULOG.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_ULOG.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_UNIXSOCK.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_inppkt_UNIXSOCK.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_GPRINT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_GPRINT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_GRAPHITE.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_GRAPHITE.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_LOGEMU.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_LOGEMU.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_NACCT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_NACCT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_OPRINT.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_OPRINT.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_SYSLOG.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_SYSLOG.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_XML.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_XML.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_MYSQL.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_MYSQL.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PCAP.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PCAP.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_output_PGSQL.la
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
-%attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.la
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
 %{_sysconfdir}/%{name}/%{name}.conf
