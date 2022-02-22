@@ -16,6 +16,11 @@ BuildRequires: libnetfilter_log-devel >= 1.0.1
 BuildRequires: libnetfilter_conntrack-devel >= 1.0.7
 BuildRequires: libmnl-devel >= 1.0.4
 BuildRequires: libnetfilter_acct-devel >= 1.0.2
+BuildRequires: community-mysql-devel >= 5.7.25
+BuildRequires: postgresql-devel >= 10.7
+BuildRequires: libdbi-devel >= 0.9.0
+BuildRequires: libpcap-devel >= 1.9.0
+
  
 Requires: libnfnetlink >= 1.0.1
 Requires: libnetfilter_log >= 1.0.1
