@@ -11,6 +11,7 @@ Source2: %{name}.conf
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
+BuildRequires: make >= 4.2.1
 BuildRequires: libnfnetlink-devel >= 1.0.1
 BuildRequires: libnetfilter_log-devel >= 1.0.1
 BuildRequires: libnetfilter_conntrack-devel >= 1.0.7
