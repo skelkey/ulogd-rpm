@@ -8,6 +8,7 @@ URL:     https://www.netfilter.org
 Source0: https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1: %{name}.service
 Source2: %{name}.conf
+Source3: %{name}.tt
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
@@ -43,6 +44,8 @@ userspace process
 %build
 %configure
 make %{?_smp_mflags}
+checkmodule -M -m -o %{name}.mod %{name}.tt
+semodule_package -o %{buildroot}%{_datadir}/selinux/packages/targeted/%{name}.pp
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -55,6 +58,14 @@ rm -rf $RPM_BUILD_ROOT
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
 /usr/bin/getent passwd %{name} > /dev/null || /usr/sbin/useradd -r -d /var/lib/%{name} -s /sbin/nologin -g %{name} %{name}
+
+%post
+semodule -i %{_datadir}/selinux/packages/targeted/%{name}.pp
+
+%postun
+/usr/bin/getent group %{name} > /dev/null && /usr/sbin/groupdel %{name}
+/usr/bin/getent passwd %{name} > /dev/null && /usr/sbin/userdel %{name}
+semodule -r %{name}
 
 %files
 %license COPYING
@@ -88,9 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
+%attr(-root,root) %{_datadir}/selinux/packages/targeted/%{name}.pp
 %{_sysconfdir}/%{name}/%{name}.conf
 
 %changelog
+* Wed Mar 9 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
+  - Adding SELinux module for ulogd
+
 * Sun Feb 20 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
   - Initial specfile
   - Compiling ulogd
