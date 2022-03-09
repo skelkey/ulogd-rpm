@@ -23,7 +23,8 @@ BuildRequires: postgresql-devel >= 10.7
 BuildRequires: libdbi-devel >= 0.9.0
 BuildRequires: libdbi >= 0.9.0
 BuildRequires: libpcap-devel >= 1.9.0
-
+BuildRequires: selinux-policy-targeted >= 3.14.1
+BuildRequires: checkpolicy >= 2.8
  
 Requires: libnfnetlink >= 1.0.1
 Requires: libnetfilter_log >= 1.0.1
@@ -44,8 +45,7 @@ userspace process
 %build
 %configure
 make %{?_smp_mflags}
-checkmodule -M -m -o %{name}.mod %{name}.tt
-semodule_package -o %{buildroot}%{_datadir}/selinux/packages/targeted/%{name}.pp
+make -f %{_datadir}/selinux/devel/Makefile %{SOURCE3} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
