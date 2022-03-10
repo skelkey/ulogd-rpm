@@ -23,7 +23,8 @@ BuildRequires: postgresql-devel >= 10.7
 BuildRequires: libdbi-devel >= 0.9.0
 BuildRequires: libdbi >= 0.9.0
 BuildRequires: libpcap-devel >= 1.9.0
-BuildRequires: selinux-policy-targeted >= 3.14.1
+BuildRequires: selinux-policy-targeted >= 3.14
+BuildRequires: selinux-policy-devel >= 3.14
 BuildRequires: checkpolicy >= 2.7
  
 Requires: libnfnetlink >= 1.0.1
