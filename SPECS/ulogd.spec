@@ -8,7 +8,7 @@ URL:     https://www.netfilter.org
 Source0: https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1: %{name}.service
 Source2: %{name}.conf
-Source3: %{name}.tt
+Source3: %{name}.te
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
@@ -46,7 +46,7 @@ userspace process
 %build
 %configure
 make %{?_smp_mflags}
-make -f %{_datadir}/selinux/devel/Makefile %{SOURCE3} 
+make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} %{name}.pp 
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -55,6 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
 %{__install} -m 0600 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
+%{__install} -d -m 0755 %{buildroot}%{_datadir}/ulogd/policy/selinux
+%{__install} -m 0644 %{_sourcedir}/%{name}.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/%{name}.pp
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
