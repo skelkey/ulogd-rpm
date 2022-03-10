@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/getent passwd %{name} > /dev/null || /usr/sbin/useradd -r -d /var/lib/%{name} -s /sbin/nologin -g %{name} %{name}
 
 %post
-semodule -i %{_datadir}/selinux/packages/targeted/%{name}.pp
+semodule -i %{_datadir}/ulogd/policy/selinux/%{name}.pp
 
 %postun
 /usr/bin/getent group %{name} > /dev/null && /usr/sbin/groupdel %{name}
