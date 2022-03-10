@@ -102,7 +102,7 @@ semodule -r %{name}
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
-%attr(- root,root) %{_datadir}/selinux/packages/targeted/%{name}.pp
+%attr(- root,root) %{_datadir}/ulogd/policy/selinux/%{name}.pp
 %{_sysconfdir}/%{name}/%{name}.conf
 
 %changelog
