@@ -5,8 +5,8 @@ require {
   type passwd_file_t;
   type sssd_var_lib_t;
   type systemd_userdbd_runtime_t;
-  class file read;
-  class dir search read;
+  class file { read };
+  class dir { search read };
 }
 
 #============= ulogd_t ==============
