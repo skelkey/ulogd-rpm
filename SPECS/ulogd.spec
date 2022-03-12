@@ -56,14 +56,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
 %{__install} -m 0600 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 %{__install} -d -m 0755 %{buildroot}%{_datadir}/ulogd/policy/selinux
-%{__install} -m 0644 %{_sourcedir}/%{name}.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/%{name}.pp
+%{__install} -m 0644 %{_sourcedir}/ulogd2.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/ulogd2.pp
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
 /usr/bin/getent passwd %{name} > /dev/null || /usr/sbin/useradd -r -d /var/lib/%{name} -s /sbin/nologin -g %{name} %{name}
 
 %post
-semodule -i %{_datadir}/ulogd/policy/selinux/%{name}.pp
+semodule -i %{_datadir}/ulogd/policy/selinux/ulogd2.pp
 
 %postun
 /usr/bin/getent group %{name} > /dev/null && /usr/sbin/groupdel %{name}
@@ -102,7 +102,7 @@ semodule -r %{name}
 %attr(-,root,root) %{_libdir}/%{name}/ulogd_raw2packet_BASE.so
 %attr(-,root,root) %{_mandir}/man8/ulogd.8.gz
 %attr(-,root,root) %{_unitdir}/%{name}.service
-%attr(- root,root) %{_datadir}/ulogd/policy/selinux/%{name}.pp
+%attr(- root,root) %{_datadir}/ulogd/policy/selinux/ulogd2.pp
 %{_sysconfdir}/%{name}/%{name}.conf
 
 %changelog
