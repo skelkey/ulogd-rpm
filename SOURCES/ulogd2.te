@@ -4,12 +4,18 @@ require {
   type ulogd_t;
   type passwd_file_t;
   type sssd_var_lib_t;
+  type sssd_public_t;
   type systemd_userdbd_runtime_t;
-  class file { read };
+  class file { open read };
   class dir { search read };
+  class sock_file { write };
 }
 
 #============= ulogd_t ==============
-allow ulogd_t passwd_file_t:file read;
+allow ulogd_t passwd_file_t:file read open;
+allow ulogd_t sssd_public_t:file read;
+allow ulogd_t sssd_var_lib_t:sock_file write;
 allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t systemd_userdbd_runtime_t:dir read;
+allow ulogd_t systemd_userdbd_runtime_t:sock_file write;
+
