@@ -12,7 +12,7 @@ require {
 }
 
 #============= ulogd_t ==============
-allow ulogd_t passwd_file_t:file read open;
+allow ulogd_t passwd_file_t:file { read open };
 allow ulogd_t sssd_public_t:file read;
 allow ulogd_t sssd_var_lib_t:sock_file write;
 allow ulogd_t sssd_var_lib_t:dir search;
