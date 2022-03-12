@@ -8,7 +8,7 @@ URL:     https://www.netfilter.org
 Source0: https://www.netfilter.org/pub/ulogd2/ulogd-2.0.7.tar.bz2
 Source1: %{name}.service
 Source2: %{name}.conf
-Source3: %{name}.te
+Source3: ulogd2.te
 
 BuildArch:     x86_64
 BuildRequires: gcc >= 8.3
@@ -46,7 +46,7 @@ userspace process
 %build
 %configure
 make %{?_smp_mflags}
-make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} %{name}.pp 
+make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2.pp 
 
 %install
 rm -rf $RPM_BUILD_ROOT
