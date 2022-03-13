@@ -6,6 +6,8 @@ ConditionFileNotEmpty=/etc/ulogd/ulogd.conf
 [Service]
 User=ulogd
 Group=ulogd
+RuntimeDirectory=ulogd
+RuntimeDirectoryMode=0755
 Type=forking
 PIDFile=/run/ulog/ulogd.pid
 ExecStart=/usr/sbin/ulogd --daemon --uid ulogd --pidfile /run/ulog/ulogd.pid --config /etc/ulogd/ulogd.conf
