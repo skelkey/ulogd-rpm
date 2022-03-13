@@ -7,6 +7,7 @@ require {
   type sssd_var_lib_t;
   type sssd_public_t;
   type var_run_t;
+  type var_log_t;
   type systemd_userdbd_runtime_t;
   class file { open read getattr create write lock };
   class dir { search read write add_name remove_name };
@@ -26,3 +27,4 @@ allow ulogd_t systemd_userdbd_runtime_t:sock_file write;
 allow ulogd_t var_run_t:dir { write add_name remove_name };
 allow ulogd_t var_run_t:file { create open read write lock getattr };
 allow ulogd_t self:capability { dac_override dac_read_search };
+allow ulogd_t var_log_t:file open;
