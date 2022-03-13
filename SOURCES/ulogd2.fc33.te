@@ -23,4 +23,4 @@ allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t systemd_userdbd_runtime_t:dir read;
 allow ulogd_t systemd_userdbd_runtime_t:sock_file write;
 allow ulogd_t var_run_t:dir { write add_name };
-allow ulogd_t var_run_t:file { create };
+allow ulogd_t var_run_t:file { create open read write };
