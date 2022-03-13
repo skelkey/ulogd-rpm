@@ -42,7 +42,7 @@ userspace process
 
 %prep
 %setup -q
-%{__cp} %{_sourcedir}ulogd2%{?dist}.te %{_sourcedir}ulogd2.te
+%{__cp} %{_sourcedir}/ulogd2%{?dist}.te %{_sourcedir}/ulogd2.te
 
 %build
 %configure
