@@ -8,7 +8,7 @@ require {
   type sssd_public_t;
   type var_run_t;
   type systemd_userdbd_runtime_t;
-  class file { open read getattr create write };
+  class file { open read getattr create write lock };
   class dir { search read write add_name };
   class sock_file { write };
   class unix_stream_socket { connectto };
