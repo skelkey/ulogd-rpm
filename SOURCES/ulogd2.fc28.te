@@ -13,4 +13,4 @@ require {
 allow ulogd_t passwd_file_t:file { read open getattr };
 allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t var_run_t:dir { write add_name };
-allow ulogd_t var_run_t:file { create open read write };
+allow ulogd_t var_run_t:file { create open read write lock };
