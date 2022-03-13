@@ -4,8 +4,6 @@ Documentation=https://www.netfilter.org
 ConditionFileNotEmpty=/etc/ulogd/ulogd.conf
 
 [Service]
-User=ulogd
-Group=ulogd
 PermissionsStartOnly=True
 RuntimeDirectory=ulogd
 RuntimeDirectoryMode=0755
