@@ -47,7 +47,7 @@ userspace process
 %build
 %configure
 %{__make} %{?_smp_mflags}
-%{__make} -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2%.pp 
+%{__make} -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2.pp 
 
 %install
 rm -rf $RPM_BUILD_ROOT
