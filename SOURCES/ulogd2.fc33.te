@@ -8,8 +8,8 @@ require {
   type sssd_public_t;
   type var_run_t;
   type systemd_userdbd_runtime_t;
-  class file { open read getattr };
-  class dir { search read write add_name create };
+  class file { open read getattr create };
+  class dir { search read write add_name };
   class sock_file { write };
   class unix_stream_socket { connectto };
 }
@@ -22,4 +22,5 @@ allow ulogd_t sssd_var_lib_t:sock_file write;
 allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t systemd_userdbd_runtime_t:dir read;
 allow ulogd_t systemd_userdbd_runtime_t:sock_file write;
-allow ulogd_t var_run_t:dir { write add_name create };
+allow ulogd_t var_run_t:dir { write add_name };
+allow ulogd_t var_run_t:file { create };
