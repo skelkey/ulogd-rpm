@@ -5,11 +5,11 @@ require {
 	type sssd_var_lib_t;
 	type passwd_file_t;
         type var_run_t;
-	class dir { search write };
+	class dir { search write add_name };
 	class file { read open getattr };
 }
 
 #============= ulogd_t ==============
 allow ulogd_t passwd_file_t:file { read open getattr };
 allow ulogd_t sssd_var_lib_t:dir search;
-allow ulogd_t var_run_t:dir write;
+allow ulogd_t var_run_t:dir { write add_name };
