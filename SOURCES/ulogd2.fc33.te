@@ -9,9 +9,10 @@ require {
   type var_run_t;
   type systemd_userdbd_runtime_t;
   class file { open read getattr create write lock };
-  class dir { search read write add_name };
+  class dir { search read write add_name remove_name };
   class sock_file { write };
   class unix_stream_socket { connectto };
+  class capability { dac_override dac_read_search };
 }
 
 #============= ulogd_t ==============
@@ -22,5 +23,6 @@ allow ulogd_t sssd_var_lib_t:sock_file write;
 allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t systemd_userdbd_runtime_t:dir read;
 allow ulogd_t systemd_userdbd_runtime_t:sock_file write;
-allow ulogd_t var_run_t:dir { write add_name };
+allow ulogd_t var_run_t:dir { write add_name remove_name };
 allow ulogd_t var_run_t:file { create open read write lock getattr };
+allow ulogd_t self:capability { dac_override dac_read_search };
