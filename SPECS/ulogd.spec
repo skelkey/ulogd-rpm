@@ -69,7 +69,7 @@ semodule -i %{_datadir}/ulogd/policy/selinux/ulogd2.pp
 %postun
 /usr/bin/getent group %{name} > /dev/null && /usr/sbin/groupdel %{name}
 /usr/bin/getent passwd %{name} > /dev/null && /usr/sbin/userdel %{name}
-semodule -r %{name}
+semodule -r ulogd2
 
 %files
 %license COPYING
