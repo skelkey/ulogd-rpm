@@ -46,7 +46,7 @@ userspace process
 %build
 %configure
 make %{?_smp_mflags}
-make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2.pp 
+make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2-%{?dist}.pp 
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -56,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
 %{__install} -m 0600 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 %{__install} -d -m 0755 %{buildroot}%{_datadir}/ulogd/policy/selinux
-%{__install} -m 0644 %{_sourcedir}/ulogd2.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/ulogd2.pp
+%{__install} -m 0644 %{_sourcedir}/ulogd2-%{?dist}.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/ulogd2.pp
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
@@ -106,6 +106,9 @@ semodule -r %{name}
 %{_sysconfdir}/%{name}/%{name}.conf
 
 %changelog
+* Sun Mar 13 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
+  - Differentiate SELinux module by Fedora version
+
 * Wed Mar 9 2022 Edouard Camoin <edouard.camoin@gmail.com> 2.0.7-1
   - Adding SELinux module for ulogd
 

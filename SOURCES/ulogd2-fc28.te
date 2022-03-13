@@ -1,0 +1,13 @@
+module ulogd2 1.0;
+
+require {
+	type ulogd_t;
+	type sssd_var_lib_t;
+	type passwd_file_t;
+	class dir search;
+	class file read;
+}
+
+#============= ulogd_t ==============
+allow ulogd_t passwd_file_t:file read;
+allow ulogd_t sssd_var_lib_t:dir search;
