@@ -6,7 +6,7 @@ require {
 	type passwd_file_t;
         type var_run_t;
 	class dir { search write add_name };
-	class file { read open getattr };
+	class file { read open getattr create };
 }
 
 #============= ulogd_t ==============
