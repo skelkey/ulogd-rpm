@@ -1,9 +1,7 @@
 [Unit]
-Description="Netfilter Userspace Logging Daemon"
+Description=Netfilter Userspace Logging Daemon
 Documentation=https://www.netfilter.org
 ConditionFileNotEmpty=/etc/ulogd/ulogd.conf
-StartLimitIntervalSec=60
-StartLimitBurst=3
 
 [Service]
 User=ulogd
@@ -14,12 +12,8 @@ ExecStart=/usr/sbin/ulogd --daemon --uid ulog --pidfile /run/ulog/ulogd.pid --co
 ExecReload=/bin/kill --signal HUP $MAINPID
 KillMode=process
 KillSignal=SIGINT
-Restart=on-failure
-RestartSec=5
-TimeoutStopSec=30
-LimitNOFILE=65536
-LimitMEMLOCK=infinity
 
 [Install]
 Alias=ulogd.service
 WantedBy=multi-user.target
+
