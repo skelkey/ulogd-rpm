@@ -42,11 +42,12 @@ userspace process
 
 %prep
 %setup -q
+%{__cp} %{_sourcedir}ulogd2%{?dist}.te %{_sourcedir}ulogd2.te
 
 %build
 %configure
-make %{?_smp_mflags}
-make -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2%{?dist}.pp 
+%{__make} %{?_smp_mflags}
+%{__make} -f %{_datadir}/selinux/devel/Makefile -C %{_sourcedir} ulogd2%.pp 
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -56,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} -d -m 0755 %{buildroot}%{_sysconfdir}/%{name}
 %{__install} -m 0600 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{name}/%{name}.conf
 %{__install} -d -m 0755 %{buildroot}%{_datadir}/ulogd/policy/selinux
-%{__install} -m 0644 %{_sourcedir}/ulogd2%{?dist}.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/ulogd2.pp
+%{__install} -m 0644 %{_sourcedir}/ulogd2.pp %{buildroot}%{_datadir}/ulogd/policy/selinux/ulogd2.pp
 
 %pre
 /usr/bin/getent group %{name} > /dev/null || /usr/sbin/groupadd -r %{name}
