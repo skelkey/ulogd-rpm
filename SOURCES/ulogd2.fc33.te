@@ -9,17 +9,17 @@ require {
   type var_run_t;
   type var_log_t;
   type systemd_userdbd_runtime_t;
-  class file { open read getattr create write lock unlink };
+  class file { open read getattr create write lock unlink map };
   class dir { search read write add_name remove_name };
   class sock_file { write };
-  class unix_stream_socket { connectto };
+  class unix_stream_socket { connectto map };
   class capability { dac_override dac_read_search };
 }
 
 #============= ulogd_t ==============
-allow ulogd_t init_t:unix_stream_socket connectto;
+allow ulogd_t init_t:unix_stream_socket { connectto map };
 allow ulogd_t passwd_file_t:file { read open getattr };
-allow ulogd_t sssd_public_t:file { read open getattr };
+allow ulogd_t sssd_public_t:file { read open getattr map };
 allow ulogd_t sssd_var_lib_t:sock_file write;
 allow ulogd_t sssd_var_lib_t:dir search;
 allow ulogd_t systemd_userdbd_runtime_t:dir read;
